@@ -32,7 +32,7 @@ public class GameController {
 
 	public void run() {
 
-		boolean trace = true;	/* à mettre à true pour suivre le détail de l'éxécution */
+		boolean trace = false;	/* à mettre à true pour suivre le détail de l'éxécution */
 
 		/*
 		 * Demande à la View le type de Jeu

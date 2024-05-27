@@ -114,7 +114,11 @@ public abstract class AbstractGame implements IGame {
 	 */
 	@Override
 	public final void PlayCards(Map<String, Integer> whichCardArePlayed) {
-
+		for(Player player : this.players){
+			if(player.isHandEmpty()){
+				player.addWonCardsBackToHand();
+			}
+		}
 		if(whichCardArePlayed == null || whichCardArePlayed.isEmpty()){
 			for(Player player : this.players){
 				Card card = player.playCard(0);
@@ -157,9 +161,6 @@ public abstract class AbstractGame implements IGame {
 			if(card.equals(winningCard)){
 				player.setTrickWinner(true);
 				isTrickWon = true;
-			}
-			if(player.isHandEmpty()){
-				player.addWonCardsBackToHand();
 			}
 		}
 		return isTrickWon;
